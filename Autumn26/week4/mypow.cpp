@@ -1,29 +1,31 @@
 #include <iostream>
 
-double mypow(double base, int exp)
-{
+double mypow(double base, int exp){
+    double result = 1;
+    // 1 so that base^0 = 1 and the loop can multiply into it
+
     int n = exp;
-    if (n < 0) {
-        n = -n;
+    if(exp < 0){
+        n = -exp;
     }
 
-    double result = 1;
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++){
         result = result * base;
     }
 
-    if (exp < 0) {
+    // base^-n = 1 / base^n
+    if(exp < 0){
         result = 1 / result;
     }
+
     return result;
 }
 
-int main()
-{
-    std::cout << "mypow(2, 10) = " << mypow(2, 10) << std::endl;
-    std::cout << "mypow(-3, 3) = " << mypow(-3, 3) << std::endl;
-    std::cout << "mypow(1.5, 2) = " << mypow(1.5, 2) << std::endl;
-    std::cout << "mypow(5, 0) = " << mypow(5, 0) << std::endl;
-    std::cout << "mypow(2, -2) = " << mypow(2, -2) << std::endl;
-    std::cout << "mypow(-2, -3) = " << mypow(-2, -3) << std::endl;
+int main(){
+    std::cout << "2^3: " << mypow(2, 3) << std::endl;
+    std::cout << "0.5^2: " << mypow(0.5, 2) << std::endl;
+    std::cout << "1^0: " << mypow(1, 0) << std::endl;
+    std::cout << "(-3)^3: " << mypow(-3, 3) << std::endl;
+    std::cout << "2^-2: " << mypow(2, -2) << std::endl;
+    std::cout << "(-2)^-3: " << mypow(-2, -3) << std::endl;
 }

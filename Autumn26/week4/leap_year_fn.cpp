@@ -1,17 +1,27 @@
 #include <iostream>
 
-bool leap_year(int year)
-{
-    return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+bool leap_year(int year){
+    bool ly;
+
+    ly = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+
+    return ly;
 }
 
-int main()
-{
-    std::cout << std::boolalpha;
-    std::cout << "1600: " << leap_year(1600) << std::endl;
-    std::cout << "2000: " << leap_year(2000) << std::endl;
-    std::cout << "1700: " << leap_year(1700) << std::endl;
-    std::cout << "1900: " << leap_year(1900) << std::endl;
-    std::cout << "2100: " << leap_year(2100) << std::endl;
-    std::cout << "2400: " << leap_year(2400) << std::endl;
+int main(){
+    std::cout << (leap_year(1600) == true) << std::endl;
+    std::cout << (leap_year(2000) == true) << std::endl;
+    std::cout << (leap_year(1700) == false) << std::endl;
+    std::cout << (leap_year(1800) == false) << std::endl;
+    std::cout << (leap_year(1900) == false) << std::endl;
+    std::cout << (leap_year(2100) == false) << std::endl;
+    std::cout << (leap_year(2200) == false) << std::endl;
+    std::cout << (leap_year(2300) == false) << std::endl;
+    std::cout << (leap_year(2500) == false) << std::endl;
+    std::cout << (leap_year(2600) == false) << std::endl;
+    std::cout << (leap_year(2700) == false) << std::endl;
+    std::cout << (leap_year(2900) == false) << std::endl;
+    std::cout << (leap_year(3000) == false) << std::endl;
+    std::cout << (leap_year(2400) == true) << std::endl;
+    std::cout << (leap_year(2800) == true) << std::endl;
 }
